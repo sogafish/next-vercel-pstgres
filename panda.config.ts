@@ -12,7 +12,20 @@ export default defineConfig({
 
     // Useful for theme customization
     theme: {
-      extend: {}
+      extend: {
+        tokens: {
+          colors: {
+            WHITE: { value: '#FFFFFF' },
+            HONEYDEW: { value: '#E0F2E9' },
+            PALE_DOGWOOD: { value: '#CEB5A7' },
+            BEAVER: { value: '#A17C6B' },
+            HOOKERS_GREEN: { value: '#5B7B7A' },
+            DARK_CYAN: { value: '#3C887E' },
+          },
+          fontSizes: {
+          },
+        },
+      },
     },
 
     // The output directory for your css system
