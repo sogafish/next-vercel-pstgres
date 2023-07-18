@@ -45,7 +45,6 @@ const Items = () => {
 
   return (
     <main>
-      <Header title="Items" />
       <div className={css({
         paddingTop: '120px',
         width: '600px',

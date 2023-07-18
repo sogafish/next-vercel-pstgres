@@ -1,12 +1,6 @@
-import { useCallback, useEffect, useState } from 'react';
-import { Item } from '@prisma/client';
 import Link from 'next/link'
 import { css } from "../../styled-system/css";
 import { flex } from "../../styled-system/patterns";
-
-type Props = {
-  title: string;
-};
 
 const containerStyle = flex({
   backgroundColor: 'DARK_CYAN',
@@ -16,20 +10,20 @@ const containerStyle = flex({
   height: '120px',
   padding: '20px',
   position: 'fixed',
+  top: 0,
+  left: 0,
   width: '100%',
   justifyContent: 'space-between',
   alignItems: 'center',
 });
 
-export const Header = (props: Props) => {
-  const { title } = props;
-
+export const Header = () => {
   return (
     <header className={containerStyle}>
       <p className={css({
         fontWeight: 600,
         fontSize: '5xl',
-      })}>{title}</p>
+      })}>＼(^o^)／</p>
       <ul>
         <li className={css({
           _hover: { color: 'lightgray' },
