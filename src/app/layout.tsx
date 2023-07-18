@@ -47,7 +47,7 @@ const containerStyle = css({
   background: 'white',
   margin: '0 auto',
   sm: {
-    width: 'calc(608px)',
+    width: '608px',
   },
   md: {
     width: '750px',

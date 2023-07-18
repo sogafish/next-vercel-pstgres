@@ -20,10 +20,13 @@ const containerStyle = flex({
 export const Header = () => {
   return (
     <header className={containerStyle}>
+      <Link className={css({
+          _hover: { color: 'lightgray' },
+        })} href="/">
       <p className={css({
         fontWeight: 600,
         fontSize: '5xl',
-      })}>＼(^o^)／</p>
+      })}>TEST</p></Link>
       <ul>
         <li className={css({
           _hover: { color: 'lightgray' },

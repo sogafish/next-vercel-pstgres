@@ -4,6 +4,7 @@ import { Item } from '@prisma/client';
 import { Header } from "@/comonents/Header";
 import { css } from "../../../styled-system/css";
 import { ItemForm } from '@/comonents/ItemForm';
+import { flex } from '../../../styled-system/patterns';
 
 const Items = () => {
   const [data, setData] = useState<Item[]>([]);
@@ -53,11 +54,19 @@ const Items = () => {
 
 const ListItem = ({ item }: { item: Item }) => {
   return (
-    <div>
-      <p>{item.title}</p>
+    <div className={itemStyle}>
+      <p>{item.title}</p>/
+      <p>{item.description || ''}</p>/
+      <p>{item?.updatedAt?.toString?.() || '--:--:--'}</p>
     </div>
   );
 };
+
+const itemStyle = flex({
+  padding: '8px',
+  borderBottomWidth: '1px',
+  borderColor: 'gray.300',
+});
 
 
 export default Items;
