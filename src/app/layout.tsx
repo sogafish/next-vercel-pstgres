@@ -16,11 +16,41 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-
   return (
     <html lang="en">
       <Header />
-      <body>{children}</body>
+      <body className={bodyStyle}>
+        <div className={containerStyle}>
+          {children}
+        </div>
+      </body>
     </html>
   )
 }
+
+// sm: '640px',
+// md: '768px',
+// lg: '1024px',
+// xl: '1280px',
+// '2xl': '1536px'
+const bodyStyle = css({
+  width: '100%',
+  height: '100vh',
+  margin: '120px 0',
+  background: 'gray.200',
+});
+
+const containerStyle = css({
+  minHeight: 'calc(100vh - 120px)',
+  padding: '16px',
+  maxWidth: 'calc(100vw - 16px)',
+  background: 'white',
+  margin: '0 auto',
+  sm: {
+    width: 'calc(608px)',
+  },
+  md: {
+    width: '750px',
+  },
+});
+

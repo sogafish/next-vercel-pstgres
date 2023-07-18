@@ -45,14 +45,8 @@ const Items = () => {
 
   return (
     <main>
-      <div className={css({
-        paddingTop: '120px',
-        width: '600px',
-        margin: '0 auto',
-      })}>
       <ItemForm successCallback={addItem} />
       {renderList()}
-      </div>
     </main>
   )
 }
