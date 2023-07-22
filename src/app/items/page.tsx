@@ -52,12 +52,23 @@ const Items = () => {
   )
 }
 
+  const onDelete = (id: number) => {
+    fetch(`/api/item/${id}`, {
+      method: 'DELETE',
+      headers: { 'Content-Type': 'application/json' },
+    })
+    .then(async (data: Response) => {
+      // const res = await data.json();
+    });
+  };
+
 const ListItem = ({ item }: { item: Item }) => {
   return (
     <div className={itemStyle}>
-      <p>{item.title}</p>/
-      <p>{item.description || ''}</p>/
+      <p>{item.title}</p>
+      <p>{item.description || ''}</p>
       <p>{item?.updatedAt?.toString?.() || '--:--:--'}</p>
+      <div className={deleteButtonStyle} onClick={() => onDelete(item.id)}>DELETE</div>
     </div>
   );
 };
@@ -66,6 +77,12 @@ const itemStyle = flex({
   padding: '8px',
   borderBottomWidth: '1px',
   borderColor: 'gray.300',
+  columnGap: 2,
+});
+const deleteButtonStyle = css({
+  cursor: 'pointer',
+  fontWeight: 500,
+  color: 'red.400',
 });
 
 
