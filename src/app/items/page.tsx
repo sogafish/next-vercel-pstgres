@@ -26,6 +26,12 @@ const Items = () => {
     });
   }, []);
 
+  const removeItem = useCallback((id: number) => {
+    setData((prev) => {
+      return prev.filter((item) => item.id !== id);
+    });
+  }, []);
+
   const renderList = useCallback(() => {
     if (isLoading) {
       return <p>Loading...</p>
@@ -38,11 +44,11 @@ const Items = () => {
     return <ul>
       {data.map((item: Item) => 
         <li key={`list-item-${item.id}`}>
-          <ListItem item={item} />
+          <ListItem item={item} removeItem={removeItem} />
         </li>
       )}
     </ul>;
-  }, [isLoading, data]);
+  }, [isLoading, data, removeItem]);
 
   return (
     <main>
@@ -51,18 +57,22 @@ const Items = () => {
     </main>
   )
 }
-
-  const onDelete = (id: number) => {
+const ListItem = ({ item, removeItem }:
+  { item: Item, removeItem: (v: number) => void }
+) => {
+  const onDelete = useCallback((id: number) => {
     fetch(`/api/item/${id}`, {
       method: 'DELETE',
       headers: { 'Content-Type': 'application/json' },
     })
-    .then(async (data: Response) => {
-      // const res = await data.json();
+    .then(async (res: Response) => {
+      const data = await res.json();
+      if (data.status === 200) {
+        removeItem(data.data.id)
+      }
     });
-  };
+  }, [removeItem]);
 
-const ListItem = ({ item }: { item: Item }) => {
   return (
     <div className={itemStyle}>
       <p>{item.title}</p>
