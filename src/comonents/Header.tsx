@@ -19,7 +19,7 @@ const containerStyle = flex({
 
 export const Header = () => {
   return (
-    <header className={containerStyle}>
+    <div className={containerStyle}>
       <Link className={css({
           _hover: { color: 'lightgray' },
         })} href="/">
@@ -27,11 +27,16 @@ export const Header = () => {
         fontWeight: 600,
         fontSize: '5xl',
       })}>TEST</p></Link>
-      <ul>
+      <ul className={flex({
+        columnGap: 4,
+      })}>
         <li className={css({
           _hover: { color: 'lightgray' },
         })}><Link href="/items">Items</Link></li>
+        <li className={css({
+          _hover: { color: 'lightgray' },
+        })}><Link href="/canvas">Canvas</Link></li>
       </ul>
-    </header>
+    </div>
   );
 };
