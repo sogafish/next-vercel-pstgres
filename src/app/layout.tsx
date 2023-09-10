@@ -18,8 +18,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <Header />
       <body className={bodyStyle}>
+        <Header />
         <div className={containerStyle}>
           {children}
         </div>
